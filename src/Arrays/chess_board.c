@@ -76,3 +76,38 @@ void checker_board()
     }
 }
 
+/**
+ * Write a program that generates a "random walk" across a 10 x 10 aray, 
+ * the * array will contain characters (all '.' initially). 
+ *
+ * The program must randomaly "walk" from element to element, always going up, 
+ * down, left or right by one element.
+ *
+ * The element visited by the program will be labeled with the letters A through Z,
+ * in the order visited. 
+ *
+ * Here's an example of the desired output:
+ *
+ * A . . . . . . . 
+ * B C D . . . . .
+ * . F G . . . . . 
+ * H J . . . . . .
+ * . . . 
+ */
+
+void random_walk()
+{
+    int row, col;
+
+    char grid[10][10] = {{'.'}};
+    // initialize the array with . first
+
+    for(row = 0; row < 10; row++)
+    {
+        for(col = 0; col < 10; col++)
+        {
+            printf(" %c", grid[row][col]); 
+        }
+        printf("\n");
+    }
+}
