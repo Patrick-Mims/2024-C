@@ -18,9 +18,10 @@
 
 void chess_board()
 {
-    int col, row;
+    int col = 8;
+    int  row = 8;
 
-    char chess_board[8][8] = {
+    char chess_board[row][col] = {
         { 'r', 'n', 'b', 't', 'k', 'b', 'n', 'g' },
         { 'a', 'h', 'p', 'k', 'p', 'f', 'b', 'p' },
         { 'n', 'i', 'e', 'g', 'k', 'b', 't', 'r' },
@@ -34,9 +35,7 @@ void chess_board()
     for(row = 0; row < CHESS_BOARD; row++) 
     {
         for(col = 0; col < CHESS_BOARD; col++) 
-        {
             printf(" %c", chess_board[row][col]);
-        }
         printf("\n");
     }
 }
