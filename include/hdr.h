@@ -5,6 +5,17 @@
 #include <stdlib.h>
 #include <string.h>
 
+struct Node 
+{
+    int *data;
+    struct Node *next;
+};
+
 void chess_board();
+void checker_board();
+void random_walk();
+void insert(struct Node **, int);
+struct Node *node();
+void display(struct Node *);
 
 #endif

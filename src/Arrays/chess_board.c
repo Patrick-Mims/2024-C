@@ -18,23 +18,22 @@
 
 void chess_board()
 {
-    int col = 8;
-    int  row = 8;
+    int col, row;
 
-    char chess_board[row][col] = {
-        { 'r', 'n', 'b', 't', 'k', 'b', 'n', 'g' },
-        { 'a', 'h', 'p', 'k', 'p', 'f', 'b', 'p' },
-        { 'n', 'i', 'e', 'g', 'k', 'b', 't', 'r' },
-        { 't', 'p', 'v', 'n', 'l', 'a', 'c', 'p' },
-        { 'r', 'm', 'o', 'q', 'h', 'b', 'n', 'b' },
-        { 'q', 'p', 'f', 's', 'a', 'x', 'b', 'u' },
-        { 'x', 'z', 'b', 'q', 'k', 'b', 'w', 'r' },
-        { 'p', 'p', 'g', 'p', 'a', 'l', 'z', 'p' }
+    char chess_board[8][8] = {
+            { 'r', 'n', 'b', 't', 'k', 'b', 'n', 'g' },
+            { 'a', 'h', 'p', 'k', 'p', 'f', 'b', 'p' },
+            { 'n', 'i', 'e', 'g', 'k', 'b', 't', 'r' },
+            { 't', 'p', 'v', 'n', 'l', 'a', 'c', 'p' },
+            { 'r', 'm', 'o', 'q', 'h', 'b', 'n', 'b' },
+            { 'q', 'p', 'f', 's', 'a', 'x', 'b', 'u' },
+            { 'x', 'z', 'b', 'q', 'k', 'b', 'w', 'r' },
+            { 'p', 'p', 'g', 'p', 'a', 'l', 'z', 'p' }
     };
 
-    for(row = 0; row < CHESS_BOARD; row++) 
+    for(row = 0; row < CHESS_BOARD; row++)
     {
-        for(col = 0; col < CHESS_BOARD; col++) 
+        for(col = 0; col < CHESS_BOARD; col++)
             printf(" %c", chess_board[row][col]);
         printf("\n");
     }
@@ -51,21 +50,21 @@ void checker_board()
     int c, r, board = 10;
 
     char checker_board[10][10] = {
-        {'k', 'r', 'i', 'e', 'n', 's', 'e', 'z', 'o', 'l' },
-        {'a', 'r', 'i', 'i', 'n', 'i', 'p', 's', 'm', 'l' },
-        {'t', 'r', 'z', 'o', 'q', 's', 'w', 'z', 'o', 'x' },
-        {'t', 'r', 'z', 'o', 'q', 's', 'w', 'z', 'o', 'x' },
-        {'a', 't', 'g', 'h', 'n', 's', 'e', 'd', 'o', 'l' },
-        {'a', 'y', 'i', 'l', 'v', 's', 'a', 'z', 'k', 'l' },
-        {'p', 'o', 'i', 'm', 'n', 'u', 'u', 'z', 'o', 'h' },
-        {'t', 'r', 'z', 'o', 'q', 's', 'w', 'z', 'o', 'x' },
-        {'w', 'b', 'i', 'n', 'w', 's', 'c', 'r', 'b', 't' },
-        {'v', 'd', 'i', 'v', 'i', 's', 'x', 'z', 'o', 'l' }
+            {'k', 'r', 'i', 'e', 'n', 's', 'e', 'z', 'o', 'l' },
+            {'a', 'r', 'i', 'i', 'n', 'i', 'p', 's', 'm', 'l' },
+            {'t', 'r', 'z', 'o', 'q', 's', 'w', 'z', 'o', 'x' },
+            {'t', 'r', 'z', 'o', 'q', 's', 'w', 'z', 'o', 'x' },
+            {'a', 't', 'g', 'h', 'n', 's', 'e', 'd', 'o', 'l' },
+            {'a', 'y', 'i', 'l', 'v', 's', 'a', 'z', 'k', 'l' },
+            {'p', 'o', 'i', 'm', 'n', 'u', 'u', 'z', 'o', 'h' },
+            {'t', 'r', 'z', 'o', 'q', 's', 'w', 'z', 'o', 'x' },
+            {'w', 'b', 'i', 'n', 'w', 's', 'c', 'r', 'b', 't' },
+            {'v', 'd', 'i', 'v', 'i', 's', 'x', 'z', 'o', 'l' }
     };
 
     puts("\nChecker Board");
 
-    for(r = 0; r < board; r++) 
+    for(r = 0; r < board; r++)
     {
         for(c = 0; c < board; c++)
         {
@@ -77,7 +76,7 @@ void checker_board()
 
 /**
  * Write a program that generates a "random walk" across a 10 x 10 aray, 
- * the * array will contain characters (all '.' initially). 
+ * the array will contain characters (all '.' initially). 
  *
  * The program must randomaly "walk" from element to element, always going up, 
  * down, left or right by one element.
@@ -94,19 +93,54 @@ void checker_board()
  * . . . 
  */
 
+//void test_me(char board[], 10)
+void create_grid(char board[10][10])
+{
+    puts("test_me()");
+}
+
 void random_walk()
 {
-    int row, col;
+    int col;
+    int grid_size = 100;
+    int gs;
+    int k;
+    int row;
+    int size_of_array = 0;
 
-    char grid[10][10] = {{'.'}};
-    // initialize the array with . first
+    char grid[10][10] = {0};
 
+    const char label[] = {
+            'A','B','C','D','E','F','G',
+            'H','I','J','K','L','M','N',
+            'O','P','Q','R','S','T','U',
+            'V','W','X','Y','Z'
+    };
+
+    printf("\nRandom Walk\n");
+
+    // Grid
     for(row = 0; row < 10; row++)
     {
         for(col = 0; col < 10; col++)
         {
-            printf(" %c", grid[row][col]); 
+            grid[row][col] = '.';
+            printf(" %c", grid[row][col]);
         }
         printf("\n");
     }
+
+    size_of_array = sizeof(label) / sizeof(label[0]);
+    for(k = 1; k <= size_of_array; k++)
+    {
+        printf("[ %d ]", k);
+        if(k % 6 == 0) {
+            printf("\n");
+        }
+    }
+    printf("\n");
+
+    gs = rand() % 100;
+
+    if(!)
 }

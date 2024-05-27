@@ -18,6 +18,8 @@ include_directories(/usr/include/libxml2)
 
 add_executable(${PROJECT_NAME}
     ${SRC}/Arrays/chess_board.c
+    ${SRC}/DataStructures/list.c
+    ${SRC}/DataStructures/stack.c
     ${SRC}/main.c
     #        ${SRC}/list.c
     #        ${SRC}/threadfactory.c
