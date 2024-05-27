@@ -95,10 +95,9 @@ void checker_board()
 
 void random_walk()
 {
-    int number_of_squares = 10;
     int col, row;
     int counter = 0;
-    int random_col, random_row;
+    int number_of_squares = 10;
 
     char grid[10][10] = {0}, temp[10][10] = {0};
 
@@ -113,7 +112,7 @@ void random_walk()
 
     srand((unsigned ) time(NULL)); //seed
 
-    for(row = 0; row < 10; row++) // Initialize array to periods.
+    for(row = 0; row < 10; row++)  // Initialize array to periods.
     {
         for(col = 0; col < 10; col++)
         {
@@ -123,10 +122,10 @@ void random_walk()
 
     while(number_of_squares > 0) // Populate temp array with characters.
     {
-        random_row = rand() % 10;
-        random_col = rand() % 10;
+        row = rand() % 10;
+        col = rand() % 10;
 
-        grid[random_row][random_col] = label[counter];
+        grid[row][col] = label[counter];
 
         number_of_squares--;
         counter++;
