@@ -95,16 +95,12 @@ void checker_board()
 
 void random_walk()
 {
-    int col;
-    int row;
-    const int size = 10;
-    int number_of_squares = size;
-    int i = 1;
-    int random_row;
-    int random_col;
+    int number_of_squares = 10;
+    int col, row;
+    int counter = 0;
+    int random_col, random_row;
 
-    char grid[10][10] = {0};
-    char temp[10][10] = {0};
+    char grid[10][10] = {0}, temp[10][10] = {0};
 
     const char label[] = {
             'A','B','C','D','E','F','G',
@@ -115,9 +111,9 @@ void random_walk()
 
     printf("\nRandom Walk\n");
 
-    srand((unsigned ) time(NULL));
+    srand((unsigned ) time(NULL)); //seed
 
-    for(row = 0; row < 10; row++)
+    for(row = 0; row < 10; row++) // Initialize array to periods.
     {
         for(col = 0; col < 10; col++)
         {
@@ -125,65 +121,23 @@ void random_walk()
         }
     }
 
-    int j = 0;
-    while(number_of_squares > 0)
+    while(number_of_squares > 0) // Populate temp array with characters.
     {
         random_row = rand() % 10;
         random_col = rand() % 10;
 
-        printf("[%d][%d]\n", random_row, random_col);
-
-        grid[random_row][random_col] = label[j];
+        grid[random_row][random_col] = label[counter];
 
         number_of_squares--;
-        j++;
+        counter++;
     }
 
-    for(row = 0; row < 10; row++)
+    for(row = 0; row < 10; row++) // Finally output grid with periods and chars.
     {
         for(col = 0; col < 10; col++)
         {
-            /*
-            if(grid[row][col] == temp[random_row][random_col])
-            {
-                puts("match");
-                //temp[random_row][random_col] = label[i];
-                grid[row][col] = label[i];
-                //printf("[%c]", temp[random_row][random_col]);
-                i++;
-            } else {
-                grid[row][col] = '.';
-            }
-            */
             printf(" %c", grid[row][col]);
         }
         printf("\n");
     }
-    number_of_squares--;
 }
-
-/*
-    while(number_of_squares > 1)
-    {
-        printf(" %c\n", grid[random_row][random_col]);
-
-        for(row = 0; row < 10; row++)
-        {
-            for(col = 0; col < 10; col++)
-            {
-                if(grid[row][col] == temp[random_row][random_col])
-                {
-                    temp[random_row][random_col] = label[i];
-                    printf(" %c", temp[random_row][random_col]);
-                } else {
-                    grid[row][col] = '.';
-                    printf(" %c", grid[row][col]);
-                }
-            }
-            printf("\n");
-        }
-        number_of_squares--;
-        i++;
-    }
-}
-    */
