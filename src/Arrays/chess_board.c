@@ -153,21 +153,31 @@ void random_walk()
     {
         random_row = rand() % 10;
         random_col = rand() % 10;
-        printf("random_row -> %d\n", random_row );
-        printf("random_col -> %d\n", random_col);
+        printf("[%d][%d]\n", random_row, random_col);
+
+//        grid[random_row][random_col] = label[i];
+        printf(" %c\n", grid[random_row][random_col]);
 
         for(row = 0; row < 10; row++)
         {
             for(col = 0; col < 10; col++)
             {
+                /*
+                grid[random_row][random_col] = label[i];
+                grid[row][col] = grid[random_row][random_col];
                 grid[row][col] = '.';
+                */
+
+                if(grid[row][col] == grid[random_row][random_col])
+                {
+                    grid[random_row][random_col] = label[i];
+                } else {
+                    grid[row][col] = '.';
+                }
                 printf(" %c", grid[row][col]);
             }
             printf("\n");
         }
-
-        grid[random_row][random_col] = label[i];
-        printf(" %c\n", grid[random_row][random_col]);
 
         number_of_squares--;
         i++;
