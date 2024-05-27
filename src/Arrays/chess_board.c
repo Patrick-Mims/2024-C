@@ -114,13 +114,24 @@ void random_walk()
     };
 
     printf("\nRandom Walk\n");
-    printf("\n");
+
+    srand((unsigned ) time(NULL));
+
+    for(row = 0; row < 10; row++)
+    {
+        for(col = 0; col < 10; col++)
+        {
+            grid[row][col] = '.';
+        }
+    }
 
     int j = 0;
     while(number_of_squares > 0)
     {
         random_row = rand() % 10;
         random_col = rand() % 10;
+
+        printf("[%d][%d]\n", random_row, random_col);
 
         grid[random_row][random_col] = label[j];
 
