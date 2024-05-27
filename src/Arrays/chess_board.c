@@ -101,7 +101,9 @@ void create_grid(char board[10][10])
 
 void random_walk()
 {
+    bool visited[10][10] = {false};
     int col;
+    int column_break = 7;
     int grid_size = 100;
     int gs;
     int k;
@@ -131,16 +133,52 @@ void random_walk()
     }
 
     size_of_array = sizeof(label) / sizeof(label[0]);
+
     for(k = 1; k <= size_of_array; k++)
     {
         printf("[ %d ]", k);
-        if(k % 6 == 0) {
+        if(k % column_break == 0) {
             printf("\n");
         }
     }
+
     printf("\n");
 
-    gs = rand() % 100;
+    int number_of_squares = 10;
+    int i = 1;
+    int random_row;
+    int random_col;
 
-    if(!)
+    while(number_of_squares > 0)
+    {
+        random_row = rand() % 10;
+        random_col = rand() % 10;
+        printf("random_row -> %d\n", random_row );
+        printf("random_col -> %d\n", random_col);
+
+        for(row = 0; row < 10; row++)
+        {
+            for(col = 0; col < 10; col++)
+            {
+                grid[row][col] = '.';
+                printf(" %c", grid[row][col]);
+            }
+            printf("\n");
+        }
+
+        grid[random_row][random_col] = label[i];
+        printf(" %c\n", grid[random_row][random_col]);
+
+        number_of_squares--;
+        i++;
+    }
+
+    /*
+    while(number_of_squares > 0)
+    {
+        grid[random_col][random_row] = label[i];
+        printf(" %c\n", grid[random_row][random_col]);
+        number_of_squares--;
+    }
+    */
 }
