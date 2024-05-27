@@ -93,22 +93,15 @@ void checker_board()
  * . . . 
  */
 
-//void test_me(char board[], 10)
-void create_grid(char board[10][10])
-{
-    puts("test_me()");
-}
-
 void random_walk()
 {
-    bool visited[10][10] = {false};
     int col;
-    int column_break = 7;
-    int grid_size = 100;
-    int gs;
-    int k;
     int row;
-    int size_of_array = 0;
+    const int size = 10;
+    int number_of_squares = size;
+    int i = 1;
+    int random_row;
+    int random_col;
 
     char grid[10][10] = {0};
 
@@ -120,54 +113,19 @@ void random_walk()
     };
 
     printf("\nRandom Walk\n");
-
-    // Grid
-    for(row = 0; row < 10; row++)
-    {
-        for(col = 0; col < 10; col++)
-        {
-            grid[row][col] = '.';
-            printf(" %c", grid[row][col]);
-        }
-        printf("\n");
-    }
-
-    size_of_array = sizeof(label) / sizeof(label[0]);
-
-    for(k = 1; k <= size_of_array; k++)
-    {
-        printf("[ %d ]", k);
-        if(k % column_break == 0) {
-            printf("\n");
-        }
-    }
-
     printf("\n");
-
-    int number_of_squares = 10;
-    int i = 1;
-    int random_row;
-    int random_col;
 
     while(number_of_squares > 0)
     {
-        random_row = rand() % 10;
-        random_col = rand() % 10;
-        printf("[%d][%d]\n", random_row, random_col);
+        random_row = rand() % size;
+        random_col = rand() % size;
 
-//        grid[random_row][random_col] = label[i];
         printf(" %c\n", grid[random_row][random_col]);
 
         for(row = 0; row < 10; row++)
         {
             for(col = 0; col < 10; col++)
             {
-                /*
-                grid[random_row][random_col] = label[i];
-                grid[row][col] = grid[random_row][random_col];
-                grid[row][col] = '.';
-                */
-
                 if(grid[row][col] == grid[random_row][random_col])
                 {
                     grid[random_row][random_col] = label[i];
@@ -178,17 +136,7 @@ void random_walk()
             }
             printf("\n");
         }
-
         number_of_squares--;
         i++;
     }
-
-    /*
-    while(number_of_squares > 0)
-    {
-        grid[random_col][random_row] = label[i];
-        printf(" %c\n", grid[random_row][random_col]);
-        number_of_squares--;
-    }
-    */
 }
