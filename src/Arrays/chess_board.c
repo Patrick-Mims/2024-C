@@ -104,6 +104,7 @@ void random_walk()
     int random_col;
 
     char grid[10][10] = {0};
+    char temp[10][10] = {0};
 
     const char label[] = {
             'A','B','C','D','E','F','G',
@@ -115,24 +116,58 @@ void random_walk()
     printf("\nRandom Walk\n");
     printf("\n");
 
+    int j = 0;
     while(number_of_squares > 0)
     {
-        random_row = rand() % size;
-        random_col = rand() % size;
+        random_row = rand() % 10;
+        random_col = rand() % 10;
 
+        grid[random_row][random_col] = label[j];
+
+        number_of_squares--;
+        j++;
+    }
+
+    for(row = 0; row < 10; row++)
+    {
+        for(col = 0; col < 10; col++)
+        {
+            /*
+            if(grid[row][col] == temp[random_row][random_col])
+            {
+                puts("match");
+                //temp[random_row][random_col] = label[i];
+                grid[row][col] = label[i];
+                //printf("[%c]", temp[random_row][random_col]);
+                i++;
+            } else {
+                grid[row][col] = '.';
+            }
+            */
+            printf(" %c", grid[row][col]);
+        }
+        printf("\n");
+    }
+    number_of_squares--;
+}
+
+/*
+    while(number_of_squares > 1)
+    {
         printf(" %c\n", grid[random_row][random_col]);
 
         for(row = 0; row < 10; row++)
         {
             for(col = 0; col < 10; col++)
             {
-                if(grid[row][col] == grid[random_row][random_col])
+                if(grid[row][col] == temp[random_row][random_col])
                 {
-                    grid[random_row][random_col] = label[i];
+                    temp[random_row][random_col] = label[i];
+                    printf(" %c", temp[random_row][random_col]);
                 } else {
                     grid[row][col] = '.';
+                    printf(" %c", grid[row][col]);
                 }
-                printf(" %c", grid[row][col]);
             }
             printf("\n");
         }
@@ -140,3 +175,4 @@ void random_walk()
         i++;
     }
 }
+    */
