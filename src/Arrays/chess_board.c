@@ -99,7 +99,7 @@ void random_walk()
     int counter = 0;
     int number_of_squares = 10;
 
-    char grid[10][10] = {0}, temp[10][10] = {0};
+    char grid[10][10] = {0};
 
     const char label[] = {
             'A','B','C','D','E','F','G',
@@ -110,7 +110,7 @@ void random_walk()
 
     printf("\nRandom Walk\n");
 
-    srand((unsigned ) time(NULL)); //seed
+    srand((unsigned) time(NULL)); //seed
 
     for(row = 0; row < 10; row++)  // Initialize array to periods.
     {
