@@ -18,5 +18,6 @@ void random_walk();
 void insert(struct Node **, int);
 struct Node *node();
 void display(struct Node *);
+void caesar_cipher();
 
 #endif
