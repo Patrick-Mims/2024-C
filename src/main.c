@@ -10,15 +10,19 @@ int main(void)
 
     struct Node *head = node();
 
-    insert(&head, 500); // &head - pass the address of a pointer to a pointer.
-    insert(&head, 1500); // &head - pass the address of a pointer to a pointer.
-    insert(&head, 2500); // &head - pass the address of a pointer to a pointer.
-    insert(&head, 3500); // &head - pass the address of a pointer to a pointer.
-    insert(&head, 4500); // &head - pass the address of a pointer to a pointer.
-    insert(&head, 5500); // &head - pass the address of a pointer to a pointer.
+    int i = 0;
+
+    do 
+    {
+        insert(&head, (i * 40)); 
+        i = i + 1;
+    } while(i <= 4);
 
     display(head);
 
-    return 0;
-}
+    // Caesar Cipher 
+    caesar_cipher();
 
+    return 0;
+
+}
